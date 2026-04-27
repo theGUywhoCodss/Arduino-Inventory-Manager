@@ -3,13 +3,6 @@
 #include "StringLinkedList.h"
 #include "NodeList.h"
 
-/* Report notes: 
-I had to count the number of digits in a number using recursion. I have to keep the book names short because of the limited space on the LCD.
-Had to get previous node manually in the removecurrent function for StringLinkedList.
-addSorted sorts array alphebetically.
-Checking for NULL is really important in this program. I did that alot.
-*/
-
 const int LCD_WIDTH = 16;
 
 bool checkout = false;
@@ -50,13 +43,13 @@ void moveCheckout(){
 void setup() {
   Serial.begin(9600);
   lcd.begin(LCD_WIDTH,2);
-  catalogue.addSorted("Emily");
-  catalogue.addSorted("Bob");
-  catalogue.addSorted("Pih");
-  catalogue.addSorted("Goat");
-  checkoutArr.insertFront("test1");
-  checkoutArr.insertFront("test2");
-  checkoutArr.insertFront("test3");
+  catalogue.addSorted("Pencils");
+  catalogue.addSorted("Scissor");
+  catalogue.addSorted("Glue");
+  catalogue.addSorted("Tape");
+  checkoutArr.insertFront("Notebook");
+  checkoutArr.insertFront("Erasers");
+  checkoutArr.insertFront("Wires");
   delay(1000);
   catalogue.resetCurrent();
   resetScreen();
@@ -114,3 +107,10 @@ void loop() {
   lcd.setCursor(LCD_WIDTH-countDigit(millis() / 1000),1);
   lcd.print(millis() / 1000);
 }
+
+/* Report notes: 
+I had to count the number of digits in a number using recursion. I have to keep the book names short because of the limited space on the LCD.
+Had to get previous node manually in the removecurrent function for StringLinkedList.
+addSorted sorts array alphebetically.
+Checking for NULL is really important in this program. I did that alot.
+*/
